@@ -1,0 +1,3 @@
+C:/Users/Anika Torres Davalos/CLionProjects/AC_Waveforms/cmake-build-debug/CMakeFiles/AC_Waveforms.dir
+C:/Users/Anika Torres Davalos/CLionProjects/AC_Waveforms/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Anika Torres Davalos/CLionProjects/AC_Waveforms/cmake-build-debug/CMakeFiles/rebuild_cache.dir
