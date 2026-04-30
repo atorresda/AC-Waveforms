@@ -51,13 +51,13 @@ build cmake_object_order_depends_target_AC_Waveforms: phony || CMakeFiles/AC_Wav
 
 build CMakeFiles/AC_Waveforms.dir/main.c.obj: C_COMPILER__AC_Waveforms_Debug C$:/Users/Anika$ Torres$ Davalos/CLionProjects/AC_Waveforms/main.c || cmake_object_order_depends_target_AC_Waveforms
   DEP_FILE = CMakeFiles\AC_Waveforms.dir\main.c.obj.d
-  FLAGS = -g -std=gnu11
+  FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles\AC_Waveforms.dir
   OBJECT_FILE_DIR = CMakeFiles\AC_Waveforms.dir
 
 build CMakeFiles/AC_Waveforms.dir/Functions.c.obj: C_COMPILER__AC_Waveforms_Debug C$:/Users/Anika$ Torres$ Davalos/CLionProjects/AC_Waveforms/Functions.c || cmake_object_order_depends_target_AC_Waveforms
   DEP_FILE = CMakeFiles\AC_Waveforms.dir\Functions.c.obj.d
-  FLAGS = -g -std=gnu11
+  FLAGS = -g -std=gnu99
   OBJECT_DIR = CMakeFiles\AC_Waveforms.dir
   OBJECT_FILE_DIR = CMakeFiles\AC_Waveforms.dir
 
