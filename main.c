@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "waveform.h"
-#include "io.c"
+#include "io.h"
 
 int main() {
     WaveformSample array[0];
