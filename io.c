@@ -15,16 +15,18 @@ void load_csv(WaveformSample *array){
 
     fgets(line, sizeof(line), fp); // skip header
 
-    while (fgets(line, sizeof(line), fp) !=NULL){
-        sscanf(line,"%f %f %f %f %f %f %f",
-               &array[0].timeStamp,
-               &array[0].phase_A_Vol,
-               &array[0].phase_B_Vol,
-               &array[0].phase_C_Vol,
-               &array[0].line_current,
-               &array[0].frequency,
-               &array[0].power_factor,
-               &array[0].thd_percent);
+    int i = 0;
+    while (fgets(line, sizeof(line), fp) !=NULL && i<1){
+        sscanf(line,"%f,%f,%f,%f,%f,%f,%f",
+               &array[i].timeStamp,
+               &array[i].phase_A_Vol,
+               &array[i].phase_B_Vol,
+               &array[i].phase_C_Vol,
+               &array[i].line_current,
+               &array[i].frequency,
+               &array[i].power_factor,
+               &array[i].thd_percent);
+        i++;
     }
 
     FILE *output_fp = fopen("outcome/report.txt", "w");
