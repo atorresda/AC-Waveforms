@@ -8,7 +8,7 @@ void load_csv(WaveformSample *array){
 
     if (fp == NULL){
         printf("Error: Cannot open file\n");
-        return 1;
+        return;
     }
 
     char line[256];
@@ -28,7 +28,7 @@ void load_csv(WaveformSample *array){
 
     fclose(fp);
 
-    return 0;
+    return;
 }
 
 
