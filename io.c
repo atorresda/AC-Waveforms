@@ -19,7 +19,7 @@ void load_csv(WaveformSample *array){
         sscanf(fp,"%f %f %f", array[0]);
     }
 
-    fopen("outcome/report.txt", "w");
+    FILE *output_fp = fopen("outcome/report.txt", "w");
     fprintf("Values: \n Time: %f\n Phase A: %f\n Phase B: %f\n",
             array[0].timeStamp,
             array[0].phase_A_Vol,
