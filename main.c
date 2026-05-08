@@ -6,5 +6,5 @@ int main() {
     WaveformSample array[0];
     load_csv(array);
 
-    return 0;
+    return 0 ;
 }
