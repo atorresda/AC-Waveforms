@@ -5,7 +5,7 @@
 
 int main() {
 
-    int rows_number = 28;
+    int rows_number = 1001;
     WaveformSample *array;
 
     array = (WaveformSample *)malloc(rows_number * sizeof(WaveformSample));
