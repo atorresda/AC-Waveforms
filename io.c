@@ -17,7 +17,7 @@ void load_csv(WaveformSample *array){
 
     int i = 0;
     while (fgets(line, sizeof(line), fp) !=NULL && i<1){
-        sscanf(line,"%f,%f,%f,%f,%f,%f,%f",
+        sscanf(line,"%f,%f,%f,%f,%f,%f,%f,%f",
                &array[i].timeStamp,
                &array[i].phase_A_Vol,
                &array[i].phase_B_Vol,
@@ -35,7 +35,7 @@ void load_csv(WaveformSample *array){
         printf("Error:Couldn't create report.txt\n");
 
     }else {
-        fprintf(output_fp, "Values: \n Time: %f\n Phase A: %f\n Phase B: %f\n",
+        fprintf(output_fp, "Values: \n Time: %f\n Phase A: %f\n Phase B: %f\n Phase C: %f\n Current: %f\n Frequency: %f\n Power Fac: %f\n THD percent: %f\n",
                 array[0].timeStamp,
                 array[0].phase_A_Vol,
                 array[0].phase_B_Vol,
@@ -47,8 +47,6 @@ void load_csv(WaveformSample *array){
     }
 
     fclose(fp);
-
-    return;
 }
 
 
