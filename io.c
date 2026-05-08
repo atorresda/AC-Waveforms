@@ -39,7 +39,7 @@ void load_csv(WaveformSample *array){
                 array[0].timeStamp,
                 array[0].phase_A_Vol,
                 array[0].phase_B_Vol,
-                array[0].phase_C_Vol
+                array[0].phase_C_Vol,
                 array[0].line_current,
                 array[0].frequency,
                 array[0].power_factor,
