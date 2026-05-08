@@ -3,7 +3,7 @@
 #include "io.h"
 
 int main() {
-    WaveformSample array[0];
+    WaveformSample array[2];
     load_csv(array);
 
     return 0 ;
