@@ -43,7 +43,7 @@ void load_csv(WaveformSample *array){
                 array[4].line_current,
                 array[5].frequency,
                 array[6].power_factor,
-                array[28].thd_percent);
+                array[27].thd_percent);
         fclose(output_fp);
     }
 
