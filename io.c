@@ -16,7 +16,7 @@ void load_csv(WaveformSample *array){
     fgets(line, sizeof(line), fp); // skip header
 
     while (fgets(line, sizeof(line), fp) !=NULL){
-        sscanf(fp,"%f %f %f %f %f %f %f",
+        sscanf(line,"%f %f %f %f %f %f %f",
                &array[0].timeStamp,
                &array[0].phase_A_Vol,
                &array[0].phase_B_Vol,
