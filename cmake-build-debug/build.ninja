@@ -61,6 +61,12 @@ build CMakeFiles/AC_Waveforms.dir/waveform.c.obj: C_COMPILER__AC_Waveforms_Debug
   OBJECT_DIR = CMakeFiles\AC_Waveforms.dir
   OBJECT_FILE_DIR = CMakeFiles\AC_Waveforms.dir
 
+build CMakeFiles/AC_Waveforms.dir/io.c.obj: C_COMPILER__AC_Waveforms_Debug C$:/Users/Anika$ Torres$ Davalos/CLionProjects/AC_Waveforms/io.c || cmake_object_order_depends_target_AC_Waveforms
+  DEP_FILE = CMakeFiles\AC_Waveforms.dir\io.c.obj.d
+  FLAGS = -g -std=gnu99
+  OBJECT_DIR = CMakeFiles\AC_Waveforms.dir
+  OBJECT_FILE_DIR = CMakeFiles\AC_Waveforms.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target AC_Waveforms
@@ -69,7 +75,7 @@ build CMakeFiles/AC_Waveforms.dir/waveform.c.obj: C_COMPILER__AC_Waveforms_Debug
 #############################################
 # Link the executable AC_Waveforms.exe
 
-build AC_Waveforms.exe: C_EXECUTABLE_LINKER__AC_Waveforms_Debug CMakeFiles/AC_Waveforms.dir/main.c.obj CMakeFiles/AC_Waveforms.dir/waveform.c.obj
+build AC_Waveforms.exe: C_EXECUTABLE_LINKER__AC_Waveforms_Debug CMakeFiles/AC_Waveforms.dir/main.c.obj CMakeFiles/AC_Waveforms.dir/waveform.c.obj CMakeFiles/AC_Waveforms.dir/io.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\AC_Waveforms.dir
