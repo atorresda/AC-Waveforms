@@ -24,7 +24,7 @@ void load_csv(WaveformSample *array){
             array[0].timeStamp,
             array[0].phase_A_Vol,
             array[0].phase_B_Vol)'];
-    fclose(report.txt);
+    fclose(output_fp);
 
     fclose(fp);
 
