@@ -1,0 +1,2 @@
+timestamp,phase_A_voltage,phase_B_voltage,phase_C_voltage,line_current,frequency,power_factor,thd_percent
+0.0,0.0,281.4582562299426,-281.4582562299426,3.0,50.0,0.95,2.0

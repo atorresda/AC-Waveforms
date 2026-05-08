@@ -1,9 +1,10 @@
 #include <stdio.h>
-#include "Functions.h"
+#include "waveform.h"
+#include "io.c"
 
 int main() {
-    printf("Hello, World!\n");
+    WaveformSample array[0];
+    load_csv(array);
+
     return 0;
 }
-
-//hello world
