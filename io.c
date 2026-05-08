@@ -28,7 +28,7 @@ void load_csv(WaveformSample *array){
     }
 
     FILE *output_fp = fopen("outcome/report.txt", "w");
-    fprintf("Values: \n Time: %f\n Phase A: %f\n Phase B: %f\n",
+    fprintf(output_fp, "Values: \n Time: %f\n Phase A: %f\n Phase B: %f\n",
             array[0].timeStamp,
             array[0].phase_A_Vol,
             array[0].phase_B_Vol,
