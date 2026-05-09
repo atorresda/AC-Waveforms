@@ -11,6 +11,14 @@ void RMS (WaveformSample *array){
     double Bsum_sq = 0.0;
     double Csum_sq = 0.0;
 
+    FILE *output_fp;
+
+    double Aarms;
+    double Barms;
+    double Carms;
+
+    int anomaly = 0;
+
     for(int j = 0; j < 1000; j++){
 
         int cycles = 1;
@@ -21,12 +29,12 @@ void RMS (WaveformSample *array){
             Bsum_sq += array[i].phase_B_Vol * array[i].phase_B_Vol;
             Csum_sq += array[i].phase_C_Vol * array[i].phase_C_Vol;
         }
-        double Aarms = sqrt(Asum_sq / n);
-        double Barms = sqrt(Bsum_sq / n);
-        double Carms = sqrt(Csum_sq / n);
+        Aarms = sqrt(Asum_sq / n);
+        Barms = sqrt(Bsum_sq / n);
+        Carms = sqrt(Csum_sq / n);
 
         if(Aarms < 207 || Aarms > 253){ // +-10% of 230 = 207:253
-            FILE *output_fp = fopen("outcome/report.txt", "w");
+            output_fp = fopen("outcome/report.txt", "w");
             if (output_fp == NULL){
 
                 printf("Error:Couldn't create report.txt\n");
@@ -34,11 +42,12 @@ void RMS (WaveformSample *array){
             }else {
                 fprintf(output_fp, "WARNING RSM Value out of 10% Tolerance Range: \n Phase A, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n", cycles, array[j].timeStamp, Aarms);
                 fclose(output_fp);
+                anomaly ++;
             }
         }
 
         if(Barms < 207 || Barms > 253){ // +-10% of 230 = 207:253
-            FILE *output_fp = fopen("outcome/report.txt", "w");
+            output_fp = fopen("outcome/report.txt", "w");
             if (output_fp == NULL){
 
                 printf("Error:Couldn't create report.txt\n");
@@ -46,11 +55,12 @@ void RMS (WaveformSample *array){
             }else {
                 fprintf(output_fp, "WARNING RSM Value out of 10% Tolerance Range: \n Phase B, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n", cycles, array[j].timeStamp, Barms);
                 fclose(output_fp);
+                anomaly ++;
             }
         }
 
         if(Carms < 207 || Carms > 253){ // +-10% of 230 = 207:253
-            FILE *output_fp = fopen("outcome/report.txt", "w");
+            output_fp = fopen("outcome/report.txt", "w");
             if (output_fp == NULL){
 
                 printf("Error:Couldn't create report.txt\n");
@@ -58,6 +68,7 @@ void RMS (WaveformSample *array){
             }else {
                 fprintf(output_fp, "WARNING RSM Value out of 10% Tolerance Range: \n Phase C, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n", cycles, array[j].timeStamp, Carms);
                 fclose(output_fp);
+                anomaly ++;
             }
         }
 
@@ -77,25 +88,18 @@ void RMS (WaveformSample *array){
 
     }
 
-    FILE *output_fp = fopen("outcome/report.txt", "w");
-    if (output_fp == NULL){
+    if(anomaly == 0){ // No tolerance errors
+        output_fp = fopen("outcome/report.txt", "a");
+        if (output_fp == NULL){
 
-        printf("Error:Couldn't create report.txt\n");
+            printf("Error:Couldn't create report.txt\n");
 
-    }else {
-        fprintf(output_fp, "Hello");
-        fclose(output_fp);
+        }else {
+            fprintf(output_fp, "No RMS Tolerance Erros\n");
+            fclose(output_fp);
+        }
     }
 
-output_fp = fopen("outcome/report.txt", "w");
-    if (output_fp == NULL){
-
-        printf("Error:Couldn't create report.txt\n");
-
-    }else {
-        fprintf(output_fp, "Bye");
-        fclose(output_fp);
-    }
 
 }
 
