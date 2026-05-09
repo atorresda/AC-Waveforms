@@ -87,6 +87,16 @@ void RMS (WaveformSample *array){
         fclose(output_fp);
     }
 
+output_fp = fopen("outcome/report.txt", "w");
+    if (output_fp == NULL){
+
+        printf("Error:Couldn't create report.txt\n");
+
+    }else {
+        fprintf(output_fp, "Bye");
+        fclose(output_fp);
+    }
+
 }
 
 
