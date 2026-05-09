@@ -72,11 +72,20 @@ void RMS (WaveformSample *array){
 
         int p = 1;
 
-        if(j/p = 10){cycles ++;} //Count in which cycle the code is in
+        if(j/p == 10){cycles ++;} //Count in which cycle the code is in
         p += 0.01;
 
     }
 
+    FILE *output_fp = fopen("outcome/report.txt", "w");
+    if (output_fp == NULL){
+
+        printf("Error:Couldn't create report.txt\n");
+
+    }else {
+        fprintf(output_fp, "Hello");
+        fclose(output_fp);
+    }
 
 }
 

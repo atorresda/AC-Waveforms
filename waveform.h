@@ -21,6 +21,6 @@ typedef struct{
     double thd_percent;//noise. 8% limit
 }WaveformSample;
 
-void RMS ()
+void RMS ();
 
 #endif //AC_WAVEFORMS_WAVEFORM_H
