@@ -15,7 +15,9 @@ int main() {
         return 1;
     }
 
-    load_csv(array);
+    load_csv(array);// Load I/O, read data, and allocate into array
+
+    RMS (array); // Compute RMS
 
     free(array);
 
