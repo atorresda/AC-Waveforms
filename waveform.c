@@ -17,11 +17,13 @@ void RMS (WaveformSample *array){
     double Barms;
     double Carms;
 
+    int cycles = 0;
     int anomaly = 0;
 
-    for(int j = 0; j < 1000; j++){
+    float p = 0;
 
-        int cycles = 1;
+
+    for(int j = 0; j < 1000; j++){
 
         int n = 100;
         for (int i = 0; i < n; i++) {
@@ -35,7 +37,7 @@ void RMS (WaveformSample *array){
         Carms = sqrt(Csum_sq / n);
 
         if(Aarms < 207 || Aarms > 253){ // +-10% of 230 = 207:253
-            output_fp = fopen("outcome/report.txt", "w");
+            output_fp = fopen("outcome/report.txt", "a");
             if (output_fp == NULL){
 
                 printf("Error:Couldn't create report.txt\n");
@@ -48,7 +50,7 @@ void RMS (WaveformSample *array){
         }
 
         if(Barms < 207 || Barms > 253){ // +-10% of 230 = 207:253
-            output_fp = fopen("outcome/report.txt", "w");
+            output_fp = fopen("outcome/report.txt", "a");
             if (output_fp == NULL){
 
                 printf("Error:Couldn't create report.txt\n");
@@ -61,7 +63,7 @@ void RMS (WaveformSample *array){
         }
 
         if(Carms < 207 || Carms > 253){ // +-10% of 230 = 207:253
-            output_fp = fopen("outcome/report.txt", "w");
+            output_fp = fopen("outcome/report.txt", "a");
             if (output_fp == NULL){
 
                 printf("Error:Couldn't create report.txt\n");
@@ -80,10 +82,6 @@ void RMS (WaveformSample *array){
         Barms = 0;
         Carms = 0;
 
-        n = 0;
-
-        float p = 1;
-
         if(j/p == 10){cycles ++;} //Count in which cycle the code is in
         p += 0.01;
 
@@ -96,7 +94,7 @@ void RMS (WaveformSample *array){
             printf("Error:Couldn't create report.txt\n");
 
         }else {
-            fprintf(output_fp, "No RMS Tolerance Erros\n");
+            fprintf(output_fp, "No RMS Tolerance Errors\n");
             fclose(output_fp);
         }
     }
