@@ -25,9 +25,10 @@ void RMS (WaveformSample *array){
 
         int n = 100;
         for (int i = 0; i < n; i++) {
-            Asum_sq += array[i].phase_A_Vol * array[i].phase_A_Vol;
-            Bsum_sq += array[i].phase_B_Vol * array[i].phase_B_Vol;
-            Csum_sq += array[i].phase_C_Vol * array[i].phase_C_Vol;
+            int array_position = (cycles * n) + i;
+            Asum_sq += array[array_position].phase_A_Vol * array[array_position].phase_A_Vol;
+            Bsum_sq += array[array_position].phase_B_Vol * array[array_position].phase_B_Vol;
+            Csum_sq += array[array_position].phase_C_Vol * array[array_position].phase_C_Vol;
         }
         Aarms = sqrt(Asum_sq / n);
         Barms = sqrt(Bsum_sq / n);
@@ -81,7 +82,7 @@ void RMS (WaveformSample *array){
 
         n = 0;
 
-        int p = 1;
+        float p = 1;
 
         if(j/p == 10){cycles ++;} //Count in which cycle the code is in
         p += 0.01;
