@@ -45,10 +45,10 @@ void RMS (WaveformSample *array){
                 Bsum_sq += PhaseV[1] * PhaseV[1];
                 Csum_sq += PhaseV[2] * PhaseV[2];
 
-                Pk_Amplitude (PhaseV, Low, High);
-
+                Pk_Amplitude (output_fp, PhaseV, Low, High);
 
             }
+
             Aarms = sqrt(Asum_sq / n);
             Barms = sqrt(Bsum_sq / n);
             Carms = sqrt(Csum_sq / n);
@@ -56,6 +56,8 @@ void RMS (WaveformSample *array){
             output_fp = fopen("outcome/report.txt", "a");
             fprintf(output_fp, "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", cycles + 1, Aarms, Barms, Carms);
             fclose(output_fp);
+
+            Pk_Amplitude_Print (output_fp, Low, High, cycles);
 
             if (Aarms < 207 || Aarms > 253) { // +-10% of 230 = 207:253
                 output_fp = fopen("outcome/report.txt", "a");
@@ -136,6 +138,17 @@ void Pk_Amplitude (double *PhaseV, double *Low, double *High){
             if (PhaseV[f] < Low[f]){ Low[f] =  PhaseV[f]; }
 
     }
+
+}
+
+void Pk_Amplitude_Print (FILE *output_fp, double *Low, double *High, int cycles){
+
+    double Vpk[3] = {High[0] - Low[0], High[1] - Low[1], High[2] - Low[2]};
+
+    output_fp = fopen("outcome/report.txt", "a");
+    fprintf(output_fp, "\n\n---Peak to Peak Amplitude ---"
+                       "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp", cycles + 1, Vpk[0], Vpk[1], Vpk[2]);
+    fclose(output_fp);
 
 }
 
