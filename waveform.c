@@ -7,11 +7,15 @@
 #include <math.h>
 
 void RMS (WaveformSample *array){
+
     double Asum_sq = 0.0;
     double Bsum_sq = 0.0;
     double Csum_sq = 0.0;
 
     FILE *output_fp;
+    output_fp = fopen("outcome/report.txt", "w");
+    fprintf(output_fp,"RMS Calculations:");
+    fclose(output_fp);
 
     double Aarms;
     double Barms;
@@ -45,7 +49,7 @@ void RMS (WaveformSample *array){
 
                 } else {
                     fprintf(output_fp,
-                            "WARNING RSM Value out of 10% Tolerance Range: \n Phase A, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
+                            "\nWARNING RSM Value out of 10% Tolerance Range: \n Phase A, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
                             cycles, array[j].timeStamp, Aarms);
                     fclose(output_fp);
                     anomaly++;
@@ -60,7 +64,7 @@ void RMS (WaveformSample *array){
 
                 } else {
                     fprintf(output_fp,
-                            "WARNING RSM Value out of 10% Tolerance Range: \n Phase B, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
+                            "\nWARNING RSM Value out of 10% Tolerance Range: \n Phase B, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
                             cycles, array[j].timeStamp, Barms);
                     fclose(output_fp);
                     anomaly++;
@@ -75,7 +79,7 @@ void RMS (WaveformSample *array){
 
                 } else {
                     fprintf(output_fp,
-                            "WARNING RSM Value out of 10% Tolerance Range: \n Phase C, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
+                            "\nWARNING RSM Value out of 10% Tolerance Range: \n Phase C, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
                             cycles, array[j].timeStamp, Carms);
                     fclose(output_fp);
                     anomaly++;
@@ -101,7 +105,7 @@ void RMS (WaveformSample *array){
             printf("Error:Couldn't create report.txt\n");
 
         }else {
-            fprintf(output_fp, "No RMS Tolerance Errors\n");
+            fprintf(output_fp, "\nNo RMS Tolerance Errors\n");
             fclose(output_fp);
         }
     }
