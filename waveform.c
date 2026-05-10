@@ -50,7 +50,7 @@ void RMS (WaveformSample *array){
                 } else {
                     fprintf(output_fp,
                             "\nWARNING RSM Value out of 10% Tolerance Range: \n Phase A, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
-                            cycles, array[j].timeStamp, Aarms);
+                            cycles + 1, array[j].timeStamp, Aarms);
                     fclose(output_fp);
                     anomaly++;
                 }
@@ -65,7 +65,7 @@ void RMS (WaveformSample *array){
                 } else {
                     fprintf(output_fp,
                             "\nWARNING RSM Value out of 10% Tolerance Range: \n Phase B, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
-                            cycles, array[j].timeStamp, Barms);
+                            cycles + 1, array[j].timeStamp, Barms);
                     fclose(output_fp);
                     anomaly++;
                 }
@@ -80,7 +80,7 @@ void RMS (WaveformSample *array){
                 } else {
                     fprintf(output_fp,
                             "\nWARNING RSM Value out of 10% Tolerance Range: \n Phase C, Cycle: #%d\n Time Stamp: %lf\n RMS Value: %lf\n",
-                            cycles, array[j].timeStamp, Carms);
+                            cycles + 1, array[j].timeStamp, Carms);
                     fclose(output_fp);
                     anomaly++;
                 }
