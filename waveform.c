@@ -45,7 +45,7 @@ void RMS (WaveformSample *array){
                 Bsum_sq += PhaseV[1] * PhaseV[1];
                 Csum_sq += PhaseV[2] * PhaseV[2];
 
-                Pk_Amplitude (output_fp, PhaseV, Low, High);
+                Pk_Amplitude (PhaseV, Low, High);
 
             }
 
