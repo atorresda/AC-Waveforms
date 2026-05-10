@@ -30,6 +30,10 @@ void RMS (WaveformSample *array){
         if(j == jcount_hunds) {
             jcount_hunds += 100;
 
+            // create array to hold HIGH and LOW values
+            double Low[3] = {1000.0, 1000.0, 1000.0};
+            double High[3] = {-1000.0, -1000.0, -1000.0};
+
             int n = 100;
             for (int i = 0; i < n; i++) {
                 int array_position = (cycles * n) + i;
@@ -40,10 +44,6 @@ void RMS (WaveformSample *array){
                 Asum_sq += PhaseV[0] * PhaseV[0];
                 Bsum_sq += PhaseV[1] * PhaseV[1];
                 Csum_sq += PhaseV[2] * PhaseV[2];
-
-                // create array to hold HIGH and LOW values
-                double Low[3] = {1000.0, 1000.0, 1000.0};
-                double High[3] = {-1000.0, -1000.0, -1000.0};
 
                 Pk_Amplitude (PhaseV, Low, High);
 
