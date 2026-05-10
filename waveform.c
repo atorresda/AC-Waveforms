@@ -18,28 +18,17 @@ void RMS (WaveformSample *array){
 
     int cycles = 0;
     int anomaly = 0;
+    int *panomaly;
     int jcount_hunds = 0;
 
-    data_cycle (output_fp, array, arms, sum_sq, cycles, anomaly, jcount_hunds, final_arms, final_Vpk);
+    data_cycle (output_fp, array, arms, sum_sq, cycles, anomaly, jcount_hunds, final_arms, final_Vpk, panomaly);
 
-    if(anomaly == 0){ // No tolerance errors
-        output_fp = fopen("outcome/report.txt", "a");
-        if (output_fp == NULL){
-
-            printf("Error:Couldn't create report.txt\n");
-
-        }else {
-            fprintf(output_fp, "\n  No RMS Tolerance Errors\n");
-            fclose(output_fp);
-        }
-    }
-
-    final_print(output_fp, final_arms, final_Vpk, cycles);
+    final_print(output_fp, final_arms, final_Vpk, cycles, anomaly);
 
 }
 
 
-void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk){
+void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
 
     int n = 100;
         for(int j = 0; j < 10; j++){
@@ -61,53 +50,8 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
 
             }
 
-            RMS_Math (output_fp, arms, sum_sq, n, cycles, final_arms);
+            RMS_Math (output_fp, array, arms, sum_sq, n, cycles, final_arms, panomaly);
             Pk_Amplitude_Math (output_fp, Low, High, cycles, final_Vpk);
-
-            if (arms[0] < 207 || arms[0] > 253) { // +-10% of 230 = 207:253
-                output_fp = fopen("outcome/report.txt", "a");
-                if (output_fp == NULL) {
-
-                    printf("Error:Couldn't create report.txt\n");
-
-                } else {
-                    fprintf(output_fp,
-                            "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase A, Cycle: #%d\n       Time Stamp: %lf\n       RMS Value: %lf\n",
-                            cycles + 1, array[j].timeStamp, arms[0]);
-                    fclose(output_fp);
-                    anomaly++;
-                }
-            }
-
-            if (arms[1] < 207 || arms[1] > 253) { // +-10% of 230 = 207:253
-                output_fp = fopen("outcome/report.txt", "a");
-                if (output_fp == NULL) {
-
-                    printf("Error:Couldn't create report.txt\n");
-
-                } else {
-                    fprintf(output_fp,
-                            "\n  WARNING RSM Value out of 10% Tolerance Range: \n   Phase B, Cycle: #%d\n   Time Stamp: %lf\n   RMS Value: %lf\n",
-                            cycles + 1, array[j].timeStamp, arms[1]);
-                    fclose(output_fp);
-                    anomaly++;
-                }
-            }
-
-            if (arms[2] < 207 || arms[2] > 253) { // +-10% of 230 = 207:253
-                output_fp = fopen("outcome/report.txt", "a");
-                if (output_fp == NULL) {
-
-                    printf("Error:Couldn't create report.txt\n");
-
-                } else {
-                    fprintf(output_fp,
-                            "\n  WARNING RSM Value out of 10% Tolerance Range: \n   Phase C, Cycle: #%d\n   Time Stamp: %lf\n   RMS Value: %lf\n",
-                            cycles + 1, array[j].timeStamp, arms[2]);
-                    fclose(output_fp);
-                    anomaly++;
-                }
-            }
 
             for (int q = 0; q<3; q++){
                 sum_sq[q] = 0;
@@ -142,16 +86,25 @@ void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles, 
 
 }
 
-void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles, double *final_arms){
+void RMS_Math (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int n, int cycles, double *final_arms, int *panomaly){
 
     for(int f = 0; f<3; f++){
         arms[f] = sqrt(sum_sq[f] / n);
         final_arms[(cycles * 3) + f] = arms[f];
+
+        if (arms[(cycles * 3) + f] < 207 || arms[(cycles * 3) + f] > 253) {
+
+            fprintf(output_fp,
+                    "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase A, Cycle: #%d\n       Time Stamp: %lf\n       RMS Value: %lf\n",
+                    cycles + 1, array[(cycles * 3) + f].timeStamp, arms[(cycles * 3) + f]);
+
+            panomaly++;
+        }
     }
 
 }
 
-void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles){
+void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly){
 
     output_fp = fopen("outcome/report.txt", "w");
 
@@ -167,6 +120,9 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
 
         int i = f * 3;
         fprintf(output_fp, writing[0], f + 1, final_arms[i], final_arms[i+1], final_arms[i+2]);
+            if(anomaly == 0){// No tolerance errors
+                fprintf(output_fp, "\n  No RMS Tolerance Errors\n");
+            }
     }
 
     //Second instance Peak to Peak
