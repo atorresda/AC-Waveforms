@@ -14,7 +14,7 @@ void RMS (WaveformSample *array){
 
     FILE *output_fp;
     output_fp = fopen("outcome/report.txt", "w");
-    fprintf(output_fp,"RMS Calculations:");
+    fprintf(output_fp,"---RMS Calculations---");
     fclose(output_fp);
 
     double Aarms;
@@ -42,7 +42,7 @@ void RMS (WaveformSample *array){
             Carms = sqrt(Csum_sq / n);
 
             output_fp = fopen("outcome/report.txt", "a");
-            fprintf(output_fp, "\n  Cycle #%d: Phase A = %.2lf V | Phase B = %.2lf V | Phase C = %.2lf V", cycles + 1, Aarms, Barms, Carms);
+            fprintf(output_fp, "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", cycles + 1, Aarms, Barms, Carms);
             fclose(output_fp);
 
             if (Aarms < 207 || Aarms > 253) { // +-10% of 230 = 207:253
@@ -53,7 +53,7 @@ void RMS (WaveformSample *array){
 
                 } else {
                     fprintf(output_fp,
-                            "\n  WARNING RSM Value out of 10% Tolerance Range: \n   Phase A, Cycle: #%d\n   Time Stamp: %lf\n   RMS Value: %lf\n",
+                            "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase A, Cycle: #%d\n       Time Stamp: %lf\n       RMS Value: %lf\n",
                             cycles + 1, array[j].timeStamp, Aarms);
                     fclose(output_fp);
                     anomaly++;
