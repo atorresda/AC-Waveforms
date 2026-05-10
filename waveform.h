@@ -22,9 +22,10 @@ typedef struct{
 }WaveformSample;
 
 void RMS ();
-void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int cycles, int anomaly, int jcount_hunds);
+void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk);
 void Pk_Amplitude (double *PhaseV, double *Low, double *High);
-void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles);
-void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles);
+void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles, double *final_Vpk);
+void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles, double *final_arms);
+void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles);
 
 #endif //AC_WAVEFORMS_WAVEFORM_H

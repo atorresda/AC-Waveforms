@@ -9,18 +9,18 @@
 void RMS (WaveformSample *array){
 
     FILE *output_fp;
-    output_fp = fopen("outcome/report.txt", "w");
-    fprintf(output_fp,"---RMS Calculations---");
-    fclose(output_fp);
 
     double arms[3];
     double sum_sq[3];
+
+    double final_arms[10];
+    double final_Vpk[10];
 
     int cycles = 0;
     int anomaly = 0;
     int jcount_hunds = 0;
 
-    data_cycle (output_fp, array, arms, sum_sq, cycles, anomaly, jcount_hunds);
+    data_cycle (output_fp, array, arms, sum_sq, cycles, anomaly, jcount_hunds, final_arms, final_Vpk);
 
     if(anomaly == 0){ // No tolerance errors
         output_fp = fopen("outcome/report.txt", "a");
@@ -33,10 +33,13 @@ void RMS (WaveformSample *array){
             fclose(output_fp);
         }
     }
+
+    final_print(output_fp, final_arms, final_Vpk, cycles);
+
 }
 
 
-void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int cycles, int anomaly, int jcount_hunds){
+void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk){
 
         for(int j = 0; j < 1000; j++){
 
@@ -61,8 +64,8 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
 
             }
 
-            RMS_Math (output_fp, arms, sum_sq, n, cycles);
-            Pk_Amplitude_Math (output_fp, Low, High, cycles);
+            RMS_Math (output_fp, arms, sum_sq, n, cycles, final_arms);
+            Pk_Amplitude_Math (output_fp, Low, High, cycles, final_Vpk);
 
             if (arms[0] < 207 || arms[0] > 253) { // +-10% of 230 = 207:253
                 output_fp = fopen("outcome/report.txt", "a");
@@ -133,26 +136,40 @@ void Pk_Amplitude (double *PhaseV, double *Low, double *High){
 
 }
 
-void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles){
+void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles, double *final_Vpk){
 
-    double Vpk[3] = {High[0] - Low[0], High[1] - Low[1], High[2] - Low[2]};
-
-    output_fp = fopen("outcome/report.txt", "a");
-    fprintf(output_fp, "\n\n---Peak to Peak Amplitude ---"
-                       "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp", cycles + 1, Vpk[0], Vpk[1], Vpk[2]);
-    fclose(output_fp);
+        for(int f = 0; f<3; f++){
+            double Vpk[3];
+            Vpk[f] = High[f] - Low[f];
+            final_Vpk[f] = Vpk[f];
+        }
 
 }
 
-void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles){
+void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles, double *final_arms){
 
     for(int f = 0; f<3; f++){
         arms[f] = sqrt(sum_sq[f] / n);
+        final_arms[f] = arms[f];
+    }
+
+}
+
+void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles){
+
+    output_fp = fopen("outcome/report.txt", "w");
+
+    for (int f = 0; f < 10; f++){
+
+        fprintf(output_fp,"---RMS Calculations---"
+                      "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", cycles + 1, final_arms[0], final_arms[1], final_arms[2]);
+
+        fprintf(output_fp, "\n\n---Peak to Peak Amplitude ---"
+                       "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp", cycles + 1, final_Vpk[0], final_Vpk[1], final_Vpk[2]);
+
     }
 
 
-    output_fp = fopen("outcome/report.txt", "a");
-    fprintf(output_fp, "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", cycles + 1, arms[0], arms[1], arms[2]);
     fclose(output_fp);
 
 }
