@@ -45,7 +45,7 @@ void RMS (WaveformSample *array){
                 double Low[3] = {1000.0, 1000.0, 1000.0};
                 double High[3] = {-1000.0, -1000.0, -1000.0};
 
-                Pk_Amplitude (double *PhaseV, double Low, double High);
+                Pk_Amplitude (PhaseV, Low, High);
 
 
             }
@@ -128,7 +128,7 @@ void RMS (WaveformSample *array){
 }
 
 
-void Pk_Amplitude (double *PhaseV, double Past_PhaseV, double Low, double High){
+void Pk_Amplitude (double *PhaseV, double *Low, double *High){
 
     for (int f = 0; f<3; f++){
 

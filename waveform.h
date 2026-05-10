@@ -22,6 +22,6 @@ typedef struct{
 }WaveformSample;
 
 void RMS ();
-void Pk_Amplitude (double *PhaseV, double Low, double High);
+void Pk_Amplitude (double *PhaseV, double *Low, double *High);
 
 #endif //AC_WAVEFORMS_WAVEFORM_H
