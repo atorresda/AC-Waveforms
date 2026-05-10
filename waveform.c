@@ -123,39 +123,3 @@ void RMS (WaveformSample *array){
         }
     }
 }
-
-
-void Pk_Amplitude (WaveformSample *array){
-
-    double AHigherPast = array[array_position].phase_B_Vol;
-    double BHigherPast = array[array_position].phase_A_Vol;
-    double CHigherPast = array[array_position].phase_C_Vol;
-    double ALowerPast = array[array_position].phase_A_Vol;
-    double BLowerPast = array[array_position].phase_B_Vol;
-    double CLowerPast = array[array_position].phase_C_Vol;
-
-    double BHigher = array[array_position].phase_B_Vol;
-    double AHigher = array[array_position].phase_A_Vol;
-    double CHigher = array[array_position].phase_C_Vol;
-    double ALower = array[array_position].phase_A_Vol;
-    double BLower = array[array_position].phase_B_Vol;
-    double CLower = array[array_position].phase_C_Vol;
-
-    char abc[] = [A,B,C];
-
-    for (int f = 0; f<3; f++){
-
-            if (abc[f]Higher >= abc[f]HigherPast){}
-    }
-
-
-
-    AHigherPast = array[array_position].phase_B_Vol;
-    BHigherPast = array[array_position].phase_A_Vol;
-    CHigherPast = array[array_position].phase_C_Vol;
-    ALowerPast = array[array_position].phase_A_Vol;
-    BLowerPast = array[array_position].phase_B_Vol;
-    CLowerPast = array[array_position].phase_C_Vol;
-
-
-}
