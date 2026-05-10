@@ -23,6 +23,7 @@ typedef struct{
 
 void RMS ();
 void Pk_Amplitude (double *PhaseV, double *Low, double *High);
-void Pk_Amplitude_Print (FILE *output_fp, double *Low, double *High, int cycles);
+void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles);
+void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles);
 
 #endif //AC_WAVEFORMS_WAVEFORM_H

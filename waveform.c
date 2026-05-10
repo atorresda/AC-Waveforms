@@ -8,18 +8,13 @@
 
 void RMS (WaveformSample *array){
 
-    double Asum_sq = 0.0;
-    double Bsum_sq = 0.0;
-    double Csum_sq = 0.0;
-
     FILE *output_fp;
     output_fp = fopen("outcome/report.txt", "w");
     fprintf(output_fp,"---RMS Calculations---");
     fclose(output_fp);
 
-    double Aarms;
-    double Barms;
-    double Carms;
+    double arms[3];
+    double sum_sq[3];
 
     int cycles = 0;
     int anomaly = 0;
@@ -40,26 +35,18 @@ void RMS (WaveformSample *array){
 
                 double PhaseV[3] = {array[array_position].phase_A_Vol, array[array_position].phase_B_Vol, array[array_position].phase_C_Vol};
 
-                // calculate sum of square root
-                Asum_sq += PhaseV[0] * PhaseV[0];
-                Bsum_sq += PhaseV[1] * PhaseV[1];
-                Csum_sq += PhaseV[2] * PhaseV[2];
+                for (int f = 0; f<3; f++){
+                    sum_sq[f] += PhaseV[f] * PhaseV[f];
+                }
 
                 Pk_Amplitude (PhaseV, Low, High);
 
             }
 
-            Aarms = sqrt(Asum_sq / n);
-            Barms = sqrt(Bsum_sq / n);
-            Carms = sqrt(Csum_sq / n);
+            RMS_Math (output_fp, arms, sum_sq, n, cycles);
+            Pk_Amplitude_Math (output_fp, Low, High, cycles);
 
-            output_fp = fopen("outcome/report.txt", "a");
-            fprintf(output_fp, "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", cycles + 1, Aarms, Barms, Carms);
-            fclose(output_fp);
-
-            Pk_Amplitude_Print (output_fp, Low, High, cycles);
-
-            if (Aarms < 207 || Aarms > 253) { // +-10% of 230 = 207:253
+            if (arms[0] < 207 || arms[0] > 253) { // +-10% of 230 = 207:253
                 output_fp = fopen("outcome/report.txt", "a");
                 if (output_fp == NULL) {
 
@@ -68,13 +55,13 @@ void RMS (WaveformSample *array){
                 } else {
                     fprintf(output_fp,
                             "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase A, Cycle: #%d\n       Time Stamp: %lf\n       RMS Value: %lf\n",
-                            cycles + 1, array[j].timeStamp, Aarms);
+                            cycles + 1, array[j].timeStamp, arms[0]);
                     fclose(output_fp);
                     anomaly++;
                 }
             }
 
-            if (Barms < 207 || Barms > 253) { // +-10% of 230 = 207:253
+            if (arms[1] < 207 || arms[1] > 253) { // +-10% of 230 = 207:253
                 output_fp = fopen("outcome/report.txt", "a");
                 if (output_fp == NULL) {
 
@@ -83,13 +70,13 @@ void RMS (WaveformSample *array){
                 } else {
                     fprintf(output_fp,
                             "\n  WARNING RSM Value out of 10% Tolerance Range: \n   Phase B, Cycle: #%d\n   Time Stamp: %lf\n   RMS Value: %lf\n",
-                            cycles + 1, array[j].timeStamp, Barms);
+                            cycles + 1, array[j].timeStamp, arms[1]);
                     fclose(output_fp);
                     anomaly++;
                 }
             }
 
-            if (Carms < 207 || Carms > 253) { // +-10% of 230 = 207:253
+            if (arms[2] < 207 || arms[2] > 253) { // +-10% of 230 = 207:253
                 output_fp = fopen("outcome/report.txt", "a");
                 if (output_fp == NULL) {
 
@@ -98,18 +85,16 @@ void RMS (WaveformSample *array){
                 } else {
                     fprintf(output_fp,
                             "\n  WARNING RSM Value out of 10% Tolerance Range: \n   Phase C, Cycle: #%d\n   Time Stamp: %lf\n   RMS Value: %lf\n",
-                            cycles + 1, array[j].timeStamp, Carms);
+                            cycles + 1, array[j].timeStamp, arms[2]);
                     fclose(output_fp);
                     anomaly++;
                 }
             }
 
-            Asum_sq = 0;
-            Bsum_sq = 0;
-            Csum_sq = 0;
-            Aarms = 0;
-            Barms = 0;
-            Carms = 0;
+            for (int q = 0; q<3; q++){
+                sum_sq[q] = 0;
+                arms[q] = 0;
+            }
 
             cycles ++; //Count in which cycle the code is in
         }
@@ -141,13 +126,26 @@ void Pk_Amplitude (double *PhaseV, double *Low, double *High){
 
 }
 
-void Pk_Amplitude_Print (FILE *output_fp, double *Low, double *High, int cycles){
+void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles){
 
     double Vpk[3] = {High[0] - Low[0], High[1] - Low[1], High[2] - Low[2]};
 
     output_fp = fopen("outcome/report.txt", "a");
     fprintf(output_fp, "\n\n---Peak to Peak Amplitude ---"
                        "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp", cycles + 1, Vpk[0], Vpk[1], Vpk[2]);
+    fclose(output_fp);
+
+}
+
+void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles){
+
+    for(int f = 0; f<3; f++){
+        arms[f] = sqrt(sum_sq[f] / n);
+    }
+
+
+    output_fp = fopen("outcome/report.txt", "a");
+    fprintf(output_fp, "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", cycles + 1, arms[0], arms[1], arms[2]);
     fclose(output_fp);
 
 }
