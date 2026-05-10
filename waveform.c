@@ -137,7 +137,7 @@ void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles, 
         for(int f = 0; f<3; f++){
             double Vpk[3];
             Vpk[f] = High[f] - Low[f];
-            final_Vpk[cycles] = Vpk[f];
+            final_Vpk[(cycles * 3) + f] = Vpk[f];// so that all phases are recorded
         }
 
 }
@@ -146,7 +146,7 @@ void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles,
 
     for(int f = 0; f<3; f++){
         arms[f] = sqrt(sum_sq[f] / n);
-        final_arms[cycles] = arms[f];
+        final_arms[(cycles * 3) + f] = arms[f];
     }
 
 }
