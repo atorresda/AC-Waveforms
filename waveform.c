@@ -159,16 +159,21 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
 
     output_fp = fopen("outcome/report.txt", "w");
 
-    for (int f = 0; f < 10; f++){
+    char titles[] = {"---RMS Calculations---","---Peak to Peak Amplitude ---"};
 
-        int i = 0;
-        fprintf(output_fp,"---RMS Calculations---"
-                      "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", f + 1, final_arms[i], final_arms[i+1], final_arms[i+2]);
+    for (int j = 0; j < 2; j++){
 
-        fprintf(output_fp, "\n\n---Peak to Peak Amplitude ---"
-                       "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp", f + 1, final_Vpk[i], final_Vpk[i+1], final_Vpk[i+2]);
+        for (int f = 0; f < 10; f++){
+            fprintf(output_fp,"%s", titles[j]);
+
+            int i = 0;
+            fprintf(output_fp,"\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", f + 1, final_arms[i], final_arms[i+1], final_arms[i+2]);
+
+            fprintf(output_fp,"\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp", f + 1, final_Vpk[i], final_Vpk[i+1], final_Vpk[i+2]);
 
         i += 3;
+
+    }
 
     }
 
