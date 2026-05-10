@@ -43,6 +43,10 @@ void RMS (WaveformSample *array){
 
                 // create array to hold previous phase data to compute Pk to Pk voltage
                 double Past_PhaseV[3] = {array[array_position].phase_A_Vol, array[array_position].phase_B_Vol, array[array_position].phase_C_Vol};
+                double Low[2];
+                double High[2];
+
+                void Pk_Amplitude (double *PhaseV, double Past_PhaseV, double Low, double High);
 
 
             }
@@ -123,3 +127,19 @@ void RMS (WaveformSample *array){
         }
     }
 }
+
+
+void Pk_Amplitude (double *PhaseV, double Past_PhaseV, double Low, double High){
+
+    for (int f = 0; f<3; f++){
+
+            if (PhaseV[f] >= Past_PhaseV[f]){
+                High[f] =  PhaseV[f];
+            }else{
+                Low[f] =  PhaseV[f];
+            }
+
+    }
+
+}
+
