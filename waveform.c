@@ -161,11 +161,14 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
 
     for (int f = 0; f < 10; f++){
 
+        int i = 0;
         fprintf(output_fp,"---RMS Calculations---"
-                      "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", cycles + 1, final_arms[0], final_arms[1], final_arms[2]);
+                      "\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V", f + 1, final_arms[i], final_arms[i+1], final_arms[i+2]);
 
         fprintf(output_fp, "\n\n---Peak to Peak Amplitude ---"
-                       "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp", cycles + 1, final_Vpk[0], final_Vpk[1], final_Vpk[2]);
+                       "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp", f + 1, final_Vpk[i], final_Vpk[i+1], final_Vpk[i+2]);
+
+        i += 3;
 
     }
 
