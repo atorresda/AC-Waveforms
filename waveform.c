@@ -20,7 +20,25 @@ void RMS (WaveformSample *array){
     int anomaly = 0;
     int jcount_hunds = 0;
 
-    for(int j = 0; j < 1000; j++){
+    data_cycle (output_fp, array, arms, sum_sq, cycles, anomaly, jcount_hunds);
+
+    if(anomaly == 0){ // No tolerance errors
+        output_fp = fopen("outcome/report.txt", "a");
+        if (output_fp == NULL){
+
+            printf("Error:Couldn't create report.txt\n");
+
+        }else {
+            fprintf(output_fp, "\n  No RMS Tolerance Errors\n");
+            fclose(output_fp);
+        }
+    }
+}
+
+
+void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int cycles, int anomaly, int jcount_hunds){
+
+        for(int j = 0; j < 1000; j++){
 
         if(j == jcount_hunds) {
             jcount_hunds += 100;
@@ -101,17 +119,6 @@ void RMS (WaveformSample *array){
 
     }
 
-    if(anomaly == 0){ // No tolerance errors
-        output_fp = fopen("outcome/report.txt", "a");
-        if (output_fp == NULL){
-
-            printf("Error:Couldn't create report.txt\n");
-
-        }else {
-            fprintf(output_fp, "\n  No RMS Tolerance Errors\n");
-            fclose(output_fp);
-        }
-    }
 }
 
 
