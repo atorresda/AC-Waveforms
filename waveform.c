@@ -41,6 +41,10 @@ void RMS (WaveformSample *array){
             Barms = sqrt(Bsum_sq / n);
             Carms = sqrt(Csum_sq / n);
 
+            output_fp = fopen("outcome/report.txt", "a");
+            fprintf(output_fp, "\n  Cycle #%d: Phase A = %.2lf V | Phase B = %.2lf V | Phase C = %.2lf V", cycles + 1, Aarms, Barms, Carms);
+            fclose(output_fp);
+
             if (Aarms < 207 || Aarms > 253) { // +-10% of 230 = 207:253
                 output_fp = fopen("outcome/report.txt", "a");
                 if (output_fp == NULL) {
