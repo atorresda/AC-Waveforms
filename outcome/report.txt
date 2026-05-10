@@ -1,2 +1,10 @@
 RMS Calculations:
-No RMS Tolerance Errors
+WARNING RSM Value out of 10% Tolerance Range: 
+ Phase A, Cycle: #1
+ Time Stamp: 0.000000
+ RMS Value: 1229949.421469
+
+WARNING RSM Value out of 10% Tolerance Range: 
+ Phase C, Cycle: #10
+ Time Stamp: 0.180000
+ RMS Value: 400000000000.000000
