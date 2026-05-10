@@ -13,8 +13,8 @@ void RMS (WaveformSample *array){
     double arms[3];
     double sum_sq[3];
 
-    double final_arms[10];
-    double final_Vpk[10];
+    double final_arms[30];
+    double final_Vpk[30];
 
     int cycles = 0;
     int anomaly = 0;
@@ -41,16 +41,13 @@ void RMS (WaveformSample *array){
 
 void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk){
 
-        for(int j = 0; j < 1000; j++){
-
-        if(j == jcount_hunds) {
-            jcount_hunds += 100;
+    int n = 100;
+        for(int j = 0; j < 10; j++){
 
             // create array to hold HIGH and LOW values
             double Low[3] = {1000.0, 1000.0, 1000.0};
             double High[3] = {-1000.0, -1000.0, -1000.0};
 
-            int n = 100;
             for (int i = 0; i < n; i++) {
                 int array_position = (cycles * n) + i;
 
@@ -118,7 +115,6 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
             }
 
             cycles ++; //Count in which cycle the code is in
-        }
 
     }
 
@@ -141,7 +137,7 @@ void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles, 
         for(int f = 0; f<3; f++){
             double Vpk[3];
             Vpk[f] = High[f] - Low[f];
-            final_Vpk[f] = Vpk[f];
+            final_Vpk[cycles] = Vpk[f];
         }
 
 }
@@ -150,7 +146,7 @@ void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles,
 
     for(int f = 0; f<3; f++){
         arms[f] = sqrt(sum_sq[f] / n);
-        final_arms[f] = arms[f];
+        final_arms[cycles] = arms[f];
     }
 
 }
@@ -164,22 +160,21 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
     char *writing[] = {"\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V",
                        "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp"};
 
-    int i = 0;
-
-    //first instance
+    //first instance RMS
 
     fprintf(output_fp,"%s", titles[0]);
     for (int f = 0; f < 10; f++){
+
+        int i = f * 3;
         fprintf(output_fp, writing[0], f + 1, final_arms[i], final_arms[i+1], final_arms[i+2]);
-        i += 3;
     }
 
-    //Second instance
+    //Second instance Peak to Peak
     fprintf(output_fp,"%s", titles[1]);
     for (int f = 0; f < 10; f++){
 
+        int i = f * 3;
         fprintf(output_fp, writing[1], f + 1, final_Vpk[i], final_Vpk[i+1], final_Vpk[i+2]);
-        i += 3;
     }
 
     fclose(output_fp);

@@ -1,8 +1,8 @@
 ---RMS Calculations---
   Cycle #1: Phase A = 229.8097 V | Phase B = 229.8097 V | Phase C = 229.8097 V
-  Cycle #2: Phase A = 0.0000 V | Phase B = 0.0000 V | Phase C = 0.0000 V
-  Cycle #3: Phase A = 0.0000 V | Phase B = 0.0000 V | Phase C = 0.0000 V
-  Cycle #4: Phase A = 0.0000 V | Phase B = 0.0000 V | Phase C = 0.0000 V
+  Cycle #2: Phase A = 229.8097 V | Phase B = 229.8097 V | Phase C = 229.8097 V
+  Cycle #3: Phase A = 229.8097 V | Phase B = 229.8097 V | Phase C = 229.8097 V
+  Cycle #4: Phase A = 229.8097 V | Phase B = 0.0000 V | Phase C = 0.0000 V
   Cycle #5: Phase A = 0.0000 V | Phase B = 0.0000 V | Phase C = 0.0000 V
   Cycle #6: Phase A = 0.0000 V | Phase B = 0.0000 V | Phase C = 0.0000 V
   Cycle #7: Phase A = 0.0000 V | Phase B = 0.0000 V | Phase C = 0.0000 V
@@ -11,10 +11,10 @@
   Cycle #10: Phase A = 0.0000 V | Phase B = 0.0000 V | Phase C = 0.0000 V
 
 ---Peak to Peak Amplitude ---
-  Cycle #1: Phase A = 0.000000 VKp | Phase B = 0.000000 VKp | Phase C = 0.000000 VKp
-  Cycle #2: Phase A = 0.000000 VKp | Phase B = 0.000000 VKp | Phase C = 0.000000 VKp
-  Cycle #3: Phase A = 0.000000 VKp | Phase B = 0.000000 VKp | Phase C = 0.000000 VKp
-  Cycle #4: Phase A = 0.000000 VKp | Phase B = 0.000000 VKp | Phase C = 0.000000 VKp
+  Cycle #1: Phase A = 649.857444 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
+  Cycle #2: Phase A = 649.857444 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
+  Cycle #3: Phase A = 649.857444 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
+  Cycle #4: Phase A = 649.857444 VKp | Phase B = 0.000000 VKp | Phase C = 0.000000 VKp
   Cycle #5: Phase A = 0.000000 VKp | Phase B = 0.000000 VKp | Phase C = 0.000000 VKp
   Cycle #6: Phase A = 0.000000 VKp | Phase B = 0.000000 VKp | Phase C = 0.000000 VKp
   Cycle #7: Phase A = 0.000000 VKp | Phase B = 0.000000 VKp | Phase C = 0.000000 VKp
