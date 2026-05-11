@@ -12,6 +12,7 @@ void RMS (WaveformSample *array){
 
     double arms[3];
     double sum_sq[3];
+    double sum_av[3];
     double DC_offset[3];
 
     double final_arms[30];
@@ -23,7 +24,7 @@ void RMS (WaveformSample *array){
     int *panomaly = &anomaly;
     int jcount_hunds = 0;
 
-    data_cycle (output_fp, array, arms, sum_sq, DC_offset, final_DC_offset, cycles, anomaly, jcount_hunds, final_arms, final_Vpk, panomaly);
+    data_cycle (output_fp, array, arms, sum_sq, sum_av, DC_offset, final_DC_offset, cycles, anomaly, jcount_hunds, final_arms, final_Vpk, panomaly);
 
     final_print(output_fp, final_arms, final_Vpk, cycles, anomaly, final_DC_offset);
 
@@ -31,7 +32,7 @@ void RMS (WaveformSample *array){
 }
 
 
-void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *DC_offset, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
+void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *sum_av; double *DC_offset, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
 
     int n = 100;
         for(int j = 0; j < 10; j++){
@@ -47,6 +48,7 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
 
                 for (int f = 0; f<3; f++){
                     sum_sq[f] += PhaseV[f] * PhaseV[f];
+                    sum_av[f] += PhaseV[f];
                 }
 
                 Pk_Amplitude (PhaseV, Low, High);
@@ -55,7 +57,7 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
 
             RMS_Math (output_fp, arms, sum_sq, n, cycles, final_arms);
             Pk_Amplitude_Math (output_fp, Low, High, cycles, final_Vpk);
-            DCOffset_Math (output_fp, DC_offset, sum_sq, n, cycles, final_DC_offset);
+            DCOffset_Math (output_fp, DC_offset, sum_av, n, cycles, final_DC_offset);
 
             for (int q = 0; q<3; q++){
                 sum_sq[q] = 0;
@@ -100,10 +102,10 @@ void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles,
 
 }
 
-void DCOffset_Math (FILE *output_fp, double *DC_offset, double *sum_sq, int n, int cycles, double *final_DC_offset){
+void DCOffset_Math (FILE *output_fp, double *DC_offset, double *sum_av, int n, int cycles, double *final_DC_offset){
 
     for(int f = 0; f<3; f++){
-        DC_offset[f] = sum_sq[f] / n;
+        DC_offset[f] = sum_av[f] / n;
         final_DC_offset[(cycles * 3) + f] = DC_offset[f];
 
     }
