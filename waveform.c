@@ -18,21 +18,24 @@ void RMS (WaveformSample *array){
     double final_arms[30];
     double final_Vpk[30];
     double final_DC_offset[30];
+    double data_clipping[30] = {0};
+    double time_clipping[30] = {0};
 
     int cycles = 0;
     int anomaly = 0;
-    int *panomaly = &anomaly;
+    int clipping_anomaly = 0;
+    int *panomaly = &clipping_anomaly;
     int jcount_hunds = 0;
 
-    data_cycle (output_fp, array, arms, sum_sq, sum_av, DC_offset, final_DC_offset, cycles, anomaly, jcount_hunds, final_arms, final_Vpk, panomaly);
+    data_cycle (output_fp, array, arms, sum_sq, sum_av, DC_offset, data_clipping, time_clipping, clipping_anomaly, final_DC_offset, cycles, anomaly, jcount_hunds, final_arms, final_Vpk, panomaly);
 
-    final_print(output_fp, final_arms, final_Vpk, cycles, anomaly, final_DC_offset);
+    final_print(output_fp, final_arms, final_Vpk, cycles, anomaly, final_DC_offset, data_clipping, time_clipping);
 
     fclose(output_fp);
 }
 
 
-void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *sum_av, double *DC_offset, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
+void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *sum_av, double *DC_offset, double *data_clipping, double *time_clipping, int clipping_anomaly, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
 
     int n = 100;
         for(int j = 0; j < 10; j++){
@@ -49,6 +52,14 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
                 for (int f = 0; f<3; f++){
                     sum_sq[f] += PhaseV[f] * PhaseV[f];
                     sum_av[f] += PhaseV[f];
+
+                    if (fabs(PhaseV[f]) >= 324.9 ){
+
+                        data_clipping[*panomaly] = PhaseV[f];
+                        time_clipping[*panomaly] = array[array_position].timeStamp;
+                        (*panomaly)++;
+
+                    }
                 }
 
                 Pk_Amplitude (PhaseV, Low, High);
@@ -113,11 +124,12 @@ void DCOffset_Math (FILE *output_fp, double *DC_offset, double *sum_av, int n, i
 
 }
 
-void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly, double *final_DC_offset){
+void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly, double *final_DC_offset, double *data_clipping, double *time_clipping){
 
     char *titles[] = {"--- RMS Calculations---",
                       "\n\n--- Peak to Peak Amplitude ---",
-                      "\n\n--- DC Offset ---"};
+                      "\n\n--- DC Offset ---",
+                      "\n\n--- Clipping ---"};
     char *writing[] = {"\n  Cycle #%2d: Phase A = %lf V | Phase B = %lf V | Phase C = %lf V",
                        "\n  Cycle #%2d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp",
                        "\n  Cycle #%2d: Phase A = %lf V | Phase B = %lf V | Phase C = %lf V"};
@@ -166,6 +178,19 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
         fprintf(output_fp, writing[2], f + 1, final_DC_offset[i], final_DC_offset[i+1], final_DC_offset[i+2]);
     }
 
+    //Four instance Clipping
+    fprintf(output_fp,"%s", titles[3]);
+    if (anomaly == 0){
 
+        fprintf(output_fp, "No Clipping Values");
+    }else{
+
+        for (int i = 0; i < anomaly; i ++){
+
+            fprintf(output_fp, "\n Time Stamp: %lf | Reading: %lf V", data_clipping[i], time_clipping[i]);
+        }
+
+
+    }
 }
 
