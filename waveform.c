@@ -32,7 +32,7 @@ void RMS (WaveformSample *array){
 }
 
 
-void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *sum_av; double *DC_offset, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
+void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *sum_av, double *DC_offset, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
 
     int n = 100;
         for(int j = 0; j < 10; j++){

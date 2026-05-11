@@ -25,13 +25,13 @@
   Cycle #10: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
 
 --- DC Offset ---
-  Cycle # 1: Phase A = 52812.590000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle # 2: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle # 3: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle # 4: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle # 5: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle # 6: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle # 7: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle # 8: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle # 9: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
-  Cycle #10: Phase A = 52812.500000 V | Phase B = 52812.500000 V | Phase C = 52812.500000 V
+  Cycle # 1: Phase A = 0.030000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 2: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 3: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = 0.000000 V
+  Cycle # 4: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 5: Phase A = 0.000000 V | Phase B = -0.000000 V | Phase C = 0.000000 V
+  Cycle # 6: Phase A = -0.000000 V | Phase B = -0.000000 V | Phase C = -0.000000 V
+  Cycle # 7: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 8: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 9: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = 0.000000 V
+  Cycle #10: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
