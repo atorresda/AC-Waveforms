@@ -27,6 +27,6 @@ void Pk_Amplitude (double *PhaseV, double *Low, double *High);
 void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles, double *final_Vpk);
 void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles, double *final_arms);
 void DCOffset_Math (FILE *output_fp, double *DC_offset, double *sum_sv, int n, int cycles, double *final_DC_offset);
-void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly, double *final_DC_offset, double *data_clipping, double *time_clipping);
+void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly, int clipping_anomaly, double *final_DC_offset, double *data_clipping, double *time_clipping);
 
 #endif //AC_WAVEFORMS_WAVEFORM_H

@@ -25,48 +25,48 @@
   Cycle #10: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
 
 --- DC Offset ---
-  Cycle # 1: Phase A = -324.928722 V | Phase B = 325.000000 V | Phase C = -324.928722 V
-  Cycle # 2: Phase A = 324.928722 V | Phase B = -325.000000 V | Phase C = 324.928722 V
-  Cycle # 3: Phase A = -324.928722 V | Phase B = 325.000000 V | Phase C = -324.928722 V
-  Cycle # 4: Phase A = 324.928722 V | Phase B = -325.000000 V | Phase C = 324.928722 V
-  Cycle # 5: Phase A = -324.928722 V | Phase B = 325.000000 V | Phase C = -324.928722 V
-  Cycle # 6: Phase A = 324.928722 V | Phase B = -325.000000 V | Phase C = 324.928722 V
-  Cycle # 7: Phase A = -324.928722 V | Phase B = 325.000000 V | Phase C = -324.928722 V
-  Cycle # 8: Phase A = 324.928722 V | Phase B = -325.000000 V | Phase C = 324.928722 V
-  Cycle # 9: Phase A = -324.928722 V | Phase B = 325.000000 V | Phase C = -324.928722 V
+  Cycle # 1: Phase A = 3.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 2: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 3: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = 0.000000 V
+  Cycle # 4: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 5: Phase A = 0.000000 V | Phase B = -0.000000 V | Phase C = 0.000000 V
+  Cycle # 6: Phase A = -0.000000 V | Phase B = -0.000000 V | Phase C = -0.000000 V
+  Cycle # 7: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 8: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 9: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = 0.000000 V
   Cycle #10: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
 
 --- Clipping ---
- Time Stamp: 0.001600 | Reading: 0.101600 V
- Time Stamp: 0.005000 | Reading: 0.105000 V
- Time Stamp: 0.008400 | Reading: 0.108400 V
- Time Stamp: 0.011600 | Reading: 0.111600 V
- Time Stamp: 0.015000 | Reading: 0.115000 V
- Time Stamp: 0.018400 | Reading: 0.118400 V
- Time Stamp: 0.021600 | Reading: 0.121600 V
- Time Stamp: 0.025000 | Reading: 0.125000 V
- Time Stamp: 0.028400 | Reading: 0.128400 V
- Time Stamp: 0.031600 | Reading: 0.131600 V
- Time Stamp: 0.035000 | Reading: 0.135000 V
- Time Stamp: 0.038400 | Reading: 0.138400 V
- Time Stamp: 0.041600 | Reading: 0.141600 V
- Time Stamp: 0.045000 | Reading: 0.145000 V
- Time Stamp: 0.048400 | Reading: 0.148400 V
- Time Stamp: 0.051600 | Reading: 0.151600 V
- Time Stamp: 0.055000 | Reading: 0.155000 V
- Time Stamp: 0.058400 | Reading: 0.158400 V
- Time Stamp: 0.061600 | Reading: 0.161600 V
- Time Stamp: 0.065000 | Reading: 0.165000 V
- Time Stamp: 0.068400 | Reading: 0.168400 V
- Time Stamp: 0.071600 | Reading: 0.171600 V
- Time Stamp: 0.075000 | Reading: 0.175000 V
- Time Stamp: 0.078400 | Reading: 0.178400 V
- Time Stamp: 0.081600 | Reading: 0.181600 V
- Time Stamp: 0.085000 | Reading: 0.185000 V
- Time Stamp: 0.088400 | Reading: 0.188400 V
- Time Stamp: 0.091600 | Reading: 0.191600 V
- Time Stamp: 0.095000 | Reading: 0.195000 V
- Time Stamp: 0.098400 | Reading: 0.198400 V
+ Time Stamp: 0.001600 | Reading: -324.928722 V
+ Time Stamp: 0.005000 | Reading: 325.000000 V
+ Time Stamp: 0.008400 | Reading: -324.928722 V
+ Time Stamp: 0.011600 | Reading: 324.928722 V
+ Time Stamp: 0.015000 | Reading: -325.000000 V
+ Time Stamp: 0.018400 | Reading: 324.928722 V
+ Time Stamp: 0.021600 | Reading: -324.928722 V
+ Time Stamp: 0.025000 | Reading: 325.000000 V
+ Time Stamp: 0.028400 | Reading: -324.928722 V
+ Time Stamp: 0.031600 | Reading: 324.928722 V
+ Time Stamp: 0.035000 | Reading: -325.000000 V
+ Time Stamp: 0.038400 | Reading: 324.928722 V
+ Time Stamp: 0.041600 | Reading: -324.928722 V
+ Time Stamp: 0.045000 | Reading: 325.000000 V
+ Time Stamp: 0.048400 | Reading: -324.928722 V
+ Time Stamp: 0.051600 | Reading: 324.928722 V
+ Time Stamp: 0.055000 | Reading: -325.000000 V
+ Time Stamp: 0.058400 | Reading: 324.928722 V
+ Time Stamp: 0.061600 | Reading: -324.928722 V
+ Time Stamp: 0.065000 | Reading: 325.000000 V
+ Time Stamp: 0.068400 | Reading: -324.928722 V
+ Time Stamp: 0.071600 | Reading: 324.928722 V
+ Time Stamp: 0.075000 | Reading: -325.000000 V
+ Time Stamp: 0.078400 | Reading: 324.928722 V
+ Time Stamp: 0.081600 | Reading: -324.928722 V
+ Time Stamp: 0.085000 | Reading: 325.000000 V
+ Time Stamp: 0.088400 | Reading: -324.928722 V
+ Time Stamp: 0.091600 | Reading: 324.928722 V
+ Time Stamp: 0.095000 | Reading: -325.000000 V
+ Time Stamp: 0.098400 | Reading: 324.928722 V
  Time Stamp: 0.101600 | Reading: -324.928722 V
  Time Stamp: 0.105000 | Reading: 325.000000 V
  Time Stamp: 0.108400 | Reading: -324.928722 V
@@ -94,6 +94,6 @@
  Time Stamp: 0.181600 | Reading: -324.928722 V
  Time Stamp: 0.185000 | Reading: 325.000000 V
  Time Stamp: 0.188400 | Reading: -324.928722 V
- Time Stamp: 0.191600 | Reading: -0.000000 V
- Time Stamp: 0.195000 | Reading: 0.000000 V
- Time Stamp: 0.198400 | Reading: -0.000000 V
+ Time Stamp: 0.191600 | Reading: 324.928722 V
+ Time Stamp: 0.195000 | Reading: -325.000000 V
+ Time Stamp: 0.198400 | Reading: 324.928722 V

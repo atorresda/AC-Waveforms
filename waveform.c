@@ -18,8 +18,8 @@ void RMS (WaveformSample *array){
     double final_arms[30];
     double final_Vpk[30];
     double final_DC_offset[30];
-    double data_clipping[30] = {0};
-    double time_clipping[30] = {0};
+    double data_clipping[3000] = {0};
+    double time_clipping[3000] = {0};
 
     int cycles = 0;
     int anomaly = 0;
@@ -35,7 +35,8 @@ void RMS (WaveformSample *array){
 }
 
 
-void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *sum_av, double *DC_offset, double *data_clipping, double *time_clipping, int clipping_anomaly, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
+void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *sum_av, double *DC_offset, double *data_clipping, double *time_clipping,
+                 int clipping_anomaly, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
 
     int n = 100;
         for(int j = 0; j < 10; j++){
@@ -53,7 +54,7 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
                     sum_sq[f] += PhaseV[f] * PhaseV[f];
                     sum_av[f] += PhaseV[f];
 
-                    if (fabs(PhaseV[f]) >= 324.9 ){
+                    if (fabs(PhaseV[f]) >= 324.9 && *panomaly < 3000 ){
 
                         data_clipping[*panomaly] = PhaseV[f];
                         time_clipping[*panomaly] = array[array_position].timeStamp;
@@ -124,7 +125,8 @@ void DCOffset_Math (FILE *output_fp, double *DC_offset, double *sum_av, int n, i
 
 }
 
-void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly, int clipping_anomaly, double *final_DC_offset, double *data_clipping, double *time_clipping){
+void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly, int clipping_anomaly, double *final_DC_offset,
+                 double *data_clipping, double *time_clipping){
 
     char *titles[] = {"--- RMS Calculations---",
                       "\n\n--- Peak to Peak Amplitude ---",
