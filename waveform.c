@@ -116,10 +116,10 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
 
         for (int p = 0; p < 3; p++){
 
-            if (final_arms[p] < 207 || final_arms[p] > 253) {
+            if (final_arms[i + p] < 207 || final_arms[i + p] > 253) {
             fprintf(output_fp,
-                    "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase %c, Cycle: #%d\n       RMS Value: %lf\n",
-                    phases[p], cycles + 1, final_arms[i + p]);
+                    "\n\n  *** WARNING RSM Value out of 10%% Tolerance Range: ***\n       Phase %c, Cycle: #%d\n       RMS Value: %lf\n",
+                    phases[p], f + 1, final_arms[i + p]);
 
             anomaly++;
         }
