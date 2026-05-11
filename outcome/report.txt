@@ -1,3 +1,8 @@
+
+
+  *** WARNING RSM Value out of 10% Tolerance Range: ***
+       Phase A, Cycle: #1
+       RMS Value: 10000000.002641
 ---RMS Calculations---
   Cycle #1: Phase A = 10000000.0026 V | Phase B = 229.8097 V | Phase C = 229.8097 V
   Cycle #2: Phase A = 229.8097 V | Phase B = 229.8097 V | Phase C = 229.8097 V

@@ -51,7 +51,7 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
 
             }
 
-            RMS_Math (output_fp, array, arms, sum_sq, n, cycles, final_arms, panomaly);
+            RMS_Math (output_fp, arms, sum_sq, n, cycles, final_arms, panomaly);
             Pk_Amplitude_Math (output_fp, Low, High, cycles, final_Vpk);
 
             for (int q = 0; q<3; q++){
@@ -87,7 +87,7 @@ void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles, 
 
 }
 
-void RMS_Math (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, int n, int cycles, double *final_arms, int *panomaly){
+void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles, double *final_arms, int *panomaly){
 
     char phases[3] = {'A', 'B', 'C'};
 
@@ -98,8 +98,8 @@ void RMS_Math (FILE *output_fp, WaveformSample *array, double *arms, double *sum
         if (arms[f] < 207 || arms[f] > 253) {
 
             fprintf(output_fp,
-                    "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase %c, Cycle: #%d\n       Time Stamp: %lf\n       RMS Value: %lf\n",
-                    phases[f], cycles + 1, array[cycles * 100].timeStamp, arms[(cycles * 3) + f]);
+                    "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase %c, Cycle: #%d\n       RMS Value: %lf\n",
+                    phases[f], cycles + 1, arms[(cycles * 3) + f]);
 
             (*panomaly)++;
         }
