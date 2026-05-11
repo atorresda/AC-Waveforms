@@ -89,20 +89,10 @@ void Pk_Amplitude_Math (FILE *output_fp, double *Low, double *High, int cycles, 
 
 void RMS_Math (FILE *output_fp, double *arms, double *sum_sq, int n, int cycles, double *final_arms, int *panomaly){
 
-    char phases[3] = {'A', 'B', 'C'};
-
     for(int f = 0; f<3; f++){
         arms[f] = sqrt(sum_sq[f] / n);
         final_arms[(cycles * 3) + f] = arms[f];
 
-        if (arms[f] < 207 || arms[f] > 253) {
-
-            fprintf(output_fp,
-                    "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase %c, Cycle: #%d\n       RMS Value: %lf\n",
-                    phases[f], cycles + 1, arms[(cycles * 3) + f]);
-
-            (*panomaly)++;
-        }
     }
 
 }
@@ -114,6 +104,8 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
     char *writing[] = {"\n  Cycle #%d: Phase A = %.4lf V | Phase B = %.4lf V | Phase C = %.4lf V",
                        "\n  Cycle #%d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp"};
 
+    char phases[3] = {'A', 'B', 'C'};
+
     //first instance RMS
 
     fprintf(output_fp,"%s", titles[0]);
@@ -121,10 +113,24 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
 
         int i = f * 3;
         fprintf(output_fp, writing[0], f + 1, final_arms[i], final_arms[i+1], final_arms[i+2]);
-            if(anomaly == 0){// No tolerance errors
+
+        for (int p = 0; p < 3; p++){
+
+            if (final_arms[p] < 207 || final_arms[p] > 253) {
+            fprintf(output_fp,
+                    "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase %c, Cycle: #%d\n       RMS Value: %lf\n",
+                    phases[p], cycles + 1, final_arms[i + p]);
+
+            anomaly++;
+        }
+
+        }
+
+    }
+
+    if(anomaly == 0){// No tolerance errors
                 fprintf(output_fp, "\n  No RMS Tolerance Errors\n");
             }
-    }
 
     //Second instance Peak to Peak
     fprintf(output_fp,"%s", titles[1]);
