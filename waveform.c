@@ -12,7 +12,7 @@ void RMS (WaveformSample *array){
 
     double arms[3];
     double sum_sq[3];
-    double sum_av[3];
+    double sum_av[3] = {0.0, 0.0, 0.0};
     double DC_offset[3];
 
     double final_arms[30];
@@ -61,6 +61,7 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
 
             for (int q = 0; q<3; q++){
                 sum_sq[q] = 0;
+                sum_av[q] = 0;
                 arms[q] = 0;
             }
 
