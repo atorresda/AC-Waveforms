@@ -1,5 +1,5 @@
 --- RMS Calculations---
-  Cycle # 1: Phase A = 233.264871 V | Phase B = 229.809704 V | Phase C = 229.809704 V
+  Cycle # 1: Phase A = 229.809704 V | Phase B = 229.809704 V | Phase C = 229.809704 V
   Cycle # 2: Phase A = 229.809704 V | Phase B = 229.809704 V | Phase C = 229.809704 V
   Cycle # 3: Phase A = 229.809704 V | Phase B = 229.809704 V | Phase C = 229.809704 V
   Cycle # 4: Phase A = 229.809704 V | Phase B = 229.809704 V | Phase C = 229.809704 V
@@ -13,7 +13,7 @@
 
 
 --- Peak to Peak Amplitude ---
-  Cycle # 1: Phase A = 725.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
+  Cycle # 1: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
   Cycle # 2: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
   Cycle # 3: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
   Cycle # 4: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
@@ -25,19 +25,18 @@
   Cycle #10: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
 
 --- DC Offset ---
-  Cycle # 1: Phase A = 4.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
-  Cycle # 2: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
-  Cycle # 3: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = 0.0000000000 V
-  Cycle # 4: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
-  Cycle # 5: Phase A = 0.0000000000 V | Phase B = -0.0000000000 V | Phase C = 0.0000000000 V
-  Cycle # 6: Phase A = -0.0000000000 V | Phase B = -0.0000000000 V | Phase C = -0.0000000000 V
-  Cycle # 7: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
-  Cycle # 8: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
-  Cycle # 9: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = 0.0000000000 V
-  Cycle #10: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
+  Cycle # 1: Phase A = -0.000000000000034 V | Phase B = 0.000000000000028 V | Phase C = -0.000000000000015 V
+  Cycle # 2: Phase A = -0.000000000000024 V | Phase B = 0.000000000000010 V | Phase C = -0.000000000000052 V
+  Cycle # 3: Phase A = -0.000000000000016 V | Phase B = 0.000000000000179 V | Phase C = 0.000000000000071 V
+  Cycle # 4: Phase A = -0.000000000000012 V | Phase B = 0.000000000000045 V | Phase C = -0.000000000000030 V
+  Cycle # 5: Phase A = 0.000000000000009 V | Phase B = -0.000000000000042 V | Phase C = 0.000000000000053 V
+  Cycle # 6: Phase A = -0.000000000000099 V | Phase B = -0.000000000000031 V | Phase C = -0.000000000000202 V
+  Cycle # 7: Phase A = -0.000000000000113 V | Phase B = 0.000000000000108 V | Phase C = -0.000000000000010 V
+  Cycle # 8: Phase A = -0.000000000000035 V | Phase B = 0.000000000000044 V | Phase C = -0.000000000000014 V
+  Cycle # 9: Phase A = -0.000000000000030 V | Phase B = 0.000000000000077 V | Phase C = 0.000000000000003 V
+  Cycle #10: Phase A = -0.000000000000038 V | Phase B = 0.000000000000085 V | Phase C = -0.000000000000069 V
 
 --- Clipping ---
- Time Stamp: 0.000000 | Phase A Reading: 400.000000 V
  Time Stamp: 0.001600 | Phase C Reading: -324.928722 V
  Time Stamp: 0.005000 | Phase A Reading: 325.000000 V
  Time Stamp: 0.008400 | Phase B Reading: -324.928722 V

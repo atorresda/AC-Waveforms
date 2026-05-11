@@ -20,6 +20,7 @@ int main() {
     RMS (array); // Compute RMS
 
     free(array);
+    array = NULL;
 
     return 0 ;
 }

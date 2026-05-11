@@ -17,7 +17,7 @@ void load_csv(WaveformSample *array){
 
     int i = 0;
     while (fgets(line, sizeof(line), fp) !=NULL && i<1002){
-        sscanf(line,"%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf",
+        sscanf(line,"%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf", // allocates data in Structure
                &array[i].timeStamp,
                &array[i].phase_A_Vol,
                &array[i].phase_B_Vol,

@@ -139,7 +139,7 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
                       "\n\n--- Clipping ---"};
     char *writing[] = {"\n  Cycle #%2d: Phase A = %lf V | Phase B = %lf V | Phase C = %lf V",
                        "\n  Cycle #%2d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp",
-                       "\n  Cycle #%2d: Phase A = %.10lf V | Phase B = %.10lf V | Phase C = %.10lf V"};
+                       "\n  Cycle #%2d: Phase A = %.15lf V | Phase B = %.15lf V | Phase C = %.15lf V"};
 
     char phases[3] = {'A', 'B', 'C'};
 
