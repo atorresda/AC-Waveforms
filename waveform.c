@@ -18,7 +18,7 @@ void RMS (WaveformSample *array){
 
     int cycles = 0;
     int anomaly = 0;
-    int *panomaly;
+    int *panomaly = &anomaly;
     int jcount_hunds = 0;
 
     data_cycle (output_fp, array, arms, sum_sq, cycles, anomaly, jcount_hunds, final_arms, final_Vpk, panomaly);
@@ -98,7 +98,7 @@ void RMS_Math (FILE *output_fp, WaveformSample *array, double *arms, double *sum
                     "\n\n  *** WARNING RSM Value out of 10% Tolerance Range: ***\n       Phase A, Cycle: #%d\n       Time Stamp: %lf\n       RMS Value: %lf\n",
                     cycles + 1, array[(cycles * 3) + f].timeStamp, arms[(cycles * 3) + f]);
 
-            panomaly++;
+            *panomaly++;
         }
     }
 
