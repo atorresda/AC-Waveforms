@@ -51,6 +51,18 @@ gcc main.c waveform.c io.c -o WaveformAnalyzer -lm
 
 Run the program -> ./WaveformAnalyzer
 
+## Troubleshooting
+Fixing "Cannot open file" or "Access Violation (0xC0000005)"
+If the program crashes immediately upon running in a new location, it is usually because the "Working Directory" is pointing to the wrong folder. To fix this:
+
+At the top right of CLion, click the dropdown menu labeled AC_Waveforms (located right next to the green Play button).
+
+Select Edit Configurations...
+
+Find the Working directory field.
+
+Ensure it is set to the main project folder (the one containing main.c and power_quality_log.csv), not the cmake-build-debug folder.
+
 ## Development & Testing
 
 Github Repository: https://github.com/atorresda/AC-Waveforms
