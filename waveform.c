@@ -113,11 +113,11 @@ void DCOffset_Math (FILE *output_fp, double *DC_offset, double *sum_sq, int n, i
 void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly, double *final_DC_offset){
 
     char *titles[] = {"--- RMS Calculations---",
-                      "\n\n--- Peak to Peak Amplitude ---"
+                      "\n\n--- Peak to Peak Amplitude ---",
                       "\n\n--- DC Offset ---"};
-    char *writing[] = {"\n  Cycle #%2d: Phase A = %lf V   | Phase B = %lf V   | Phase C = %lf V",
-                       "\n  Cycle #%2d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp"
-                       "\n  Cycle #%2d: Phase A = %lf V   | Phase B = %lf V   | Phase C = %lf V"};
+    char *writing[] = {"\n  Cycle #%2d: Phase A = %lf V | Phase B = %lf V | Phase C = %lf V",
+                       "\n  Cycle #%2d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp",
+                       "\n  Cycle #%2d: Phase A = %lf V | Phase B = %lf V | Phase C = %lf V"};
 
     char phases[3] = {'A', 'B', 'C'};
 
