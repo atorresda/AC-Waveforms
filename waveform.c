@@ -20,6 +20,7 @@ void RMS (WaveformSample *array){
     double final_DC_offset[30];
     double data_clipping[3000] = {0};
     double time_clipping[3000] = {0};
+    double clipping_phase[3000] = {0};
 
     int cycles = 0;
     int anomaly = 0;
@@ -27,16 +28,16 @@ void RMS (WaveformSample *array){
     int *panomaly = &clipping_anomaly;
     int jcount_hunds = 0;
 
-    data_cycle (output_fp, array, arms, sum_sq, sum_av, DC_offset, data_clipping, time_clipping, clipping_anomaly, final_DC_offset, cycles, anomaly, jcount_hunds, final_arms, final_Vpk, panomaly);
+    data_cycle (output_fp, array, arms, sum_sq, sum_av, DC_offset, data_clipping, time_clipping, clipping_anomaly, final_DC_offset, cycles, anomaly, jcount_hunds, final_arms, final_Vpk, panomaly, clipping_phase);
 
-    final_print(output_fp, final_arms, final_Vpk, cycles, anomaly, clipping_anomaly, final_DC_offset, data_clipping, time_clipping);
+    final_print(output_fp, final_arms, final_Vpk, cycles, anomaly, clipping_anomaly, final_DC_offset, data_clipping, time_clipping, clipping_phase);
 
     fclose(output_fp);
 }
 
 
 void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *sum_sq, double *sum_av, double *DC_offset, double *data_clipping, double *time_clipping,
-                 int clipping_anomaly, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly){
+                 int clipping_anomaly, double *final_DC_offset, int cycles, int anomaly, int jcount_hunds, double *final_arms, double *final_Vpk, int *panomaly, char *clipping_phase){
 
     int n = 100;
         for(int j = 0; j < 10; j++){
@@ -50,6 +51,8 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
 
                 double PhaseV[3] = {array[array_position].phase_A_Vol, array[array_position].phase_B_Vol, array[array_position].phase_C_Vol};
 
+                char phases [3] = {'A', 'B', 'C'};
+
                 for (int f = 0; f<3; f++){
                     sum_sq[f] += PhaseV[f] * PhaseV[f];
                     sum_av[f] += PhaseV[f];
@@ -58,6 +61,8 @@ void data_cycle (FILE *output_fp, WaveformSample *array, double *arms, double *s
 
                         data_clipping[*panomaly] = PhaseV[f];
                         time_clipping[*panomaly] = array[array_position].timeStamp;
+                        clipping_phase[*panomaly] = phases[f];
+
                         (*panomaly)++;
 
                     }
@@ -126,7 +131,7 @@ void DCOffset_Math (FILE *output_fp, double *DC_offset, double *sum_av, int n, i
 }
 
 void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cycles, int anomaly, int clipping_anomaly, double *final_DC_offset,
-                 double *data_clipping, double *time_clipping){
+                 double *data_clipping, double *time_clipping, char *clipping_phase){
 
     char *titles[] = {"--- RMS Calculations---",
                       "\n\n--- Peak to Peak Amplitude ---",
@@ -134,7 +139,7 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
                       "\n\n--- Clipping ---"};
     char *writing[] = {"\n  Cycle #%2d: Phase A = %lf V | Phase B = %lf V | Phase C = %lf V",
                        "\n  Cycle #%2d: Phase A = %lf VKp | Phase B = %lf VKp | Phase C = %lf VKp",
-                       "\n  Cycle #%2d: Phase A = %lf V | Phase B = %lf V | Phase C = %lf V"};
+                       "\n  Cycle #%2d: Phase A = %.10lf V | Phase B = %.10lf V | Phase C = %.10lf V"};
 
     char phases[3] = {'A', 'B', 'C'};
 
@@ -188,7 +193,7 @@ void final_print(FILE *output_fp, double *final_arms, double *final_Vpk, int cyc
     }else{
 
         for (int i = 0; i < clipping_anomaly; i ++){
-            fprintf(output_fp, "\n Time Stamp: %lf | Reading: %lf V", time_clipping[i], data_clipping[i]);
+            fprintf(output_fp, "\n Time Stamp: %lf | Phase %c Reading: %lf V", time_clipping[i], clipping_phase[i], data_clipping[i]);
         }
 
 

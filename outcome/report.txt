@@ -1,5 +1,5 @@
 --- RMS Calculations---
-  Cycle # 1: Phase A = 231.759574 V | Phase B = 229.809704 V | Phase C = 229.809704 V
+  Cycle # 1: Phase A = 233.264871 V | Phase B = 229.809704 V | Phase C = 229.809704 V
   Cycle # 2: Phase A = 229.809704 V | Phase B = 229.809704 V | Phase C = 229.809704 V
   Cycle # 3: Phase A = 229.809704 V | Phase B = 229.809704 V | Phase C = 229.809704 V
   Cycle # 4: Phase A = 229.809704 V | Phase B = 229.809704 V | Phase C = 229.809704 V
@@ -13,7 +13,7 @@
 
 
 --- Peak to Peak Amplitude ---
-  Cycle # 1: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
+  Cycle # 1: Phase A = 725.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
   Cycle # 2: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
   Cycle # 3: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
   Cycle # 4: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
@@ -25,75 +25,76 @@
   Cycle #10: Phase A = 650.000000 VKp | Phase B = 649.857444 VKp | Phase C = 649.857444 VKp
 
 --- DC Offset ---
-  Cycle # 1: Phase A = 3.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
-  Cycle # 2: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
-  Cycle # 3: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = 0.000000 V
-  Cycle # 4: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
-  Cycle # 5: Phase A = 0.000000 V | Phase B = -0.000000 V | Phase C = 0.000000 V
-  Cycle # 6: Phase A = -0.000000 V | Phase B = -0.000000 V | Phase C = -0.000000 V
-  Cycle # 7: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
-  Cycle # 8: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
-  Cycle # 9: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = 0.000000 V
-  Cycle #10: Phase A = -0.000000 V | Phase B = 0.000000 V | Phase C = -0.000000 V
+  Cycle # 1: Phase A = 4.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
+  Cycle # 2: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
+  Cycle # 3: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = 0.0000000000 V
+  Cycle # 4: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
+  Cycle # 5: Phase A = 0.0000000000 V | Phase B = -0.0000000000 V | Phase C = 0.0000000000 V
+  Cycle # 6: Phase A = -0.0000000000 V | Phase B = -0.0000000000 V | Phase C = -0.0000000000 V
+  Cycle # 7: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
+  Cycle # 8: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
+  Cycle # 9: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = 0.0000000000 V
+  Cycle #10: Phase A = -0.0000000000 V | Phase B = 0.0000000000 V | Phase C = -0.0000000000 V
 
 --- Clipping ---
- Time Stamp: 0.001600 | Reading: -324.928722 V
- Time Stamp: 0.005000 | Reading: 325.000000 V
- Time Stamp: 0.008400 | Reading: -324.928722 V
- Time Stamp: 0.011600 | Reading: 324.928722 V
- Time Stamp: 0.015000 | Reading: -325.000000 V
- Time Stamp: 0.018400 | Reading: 324.928722 V
- Time Stamp: 0.021600 | Reading: -324.928722 V
- Time Stamp: 0.025000 | Reading: 325.000000 V
- Time Stamp: 0.028400 | Reading: -324.928722 V
- Time Stamp: 0.031600 | Reading: 324.928722 V
- Time Stamp: 0.035000 | Reading: -325.000000 V
- Time Stamp: 0.038400 | Reading: 324.928722 V
- Time Stamp: 0.041600 | Reading: -324.928722 V
- Time Stamp: 0.045000 | Reading: 325.000000 V
- Time Stamp: 0.048400 | Reading: -324.928722 V
- Time Stamp: 0.051600 | Reading: 324.928722 V
- Time Stamp: 0.055000 | Reading: -325.000000 V
- Time Stamp: 0.058400 | Reading: 324.928722 V
- Time Stamp: 0.061600 | Reading: -324.928722 V
- Time Stamp: 0.065000 | Reading: 325.000000 V
- Time Stamp: 0.068400 | Reading: -324.928722 V
- Time Stamp: 0.071600 | Reading: 324.928722 V
- Time Stamp: 0.075000 | Reading: -325.000000 V
- Time Stamp: 0.078400 | Reading: 324.928722 V
- Time Stamp: 0.081600 | Reading: -324.928722 V
- Time Stamp: 0.085000 | Reading: 325.000000 V
- Time Stamp: 0.088400 | Reading: -324.928722 V
- Time Stamp: 0.091600 | Reading: 324.928722 V
- Time Stamp: 0.095000 | Reading: -325.000000 V
- Time Stamp: 0.098400 | Reading: 324.928722 V
- Time Stamp: 0.101600 | Reading: -324.928722 V
- Time Stamp: 0.105000 | Reading: 325.000000 V
- Time Stamp: 0.108400 | Reading: -324.928722 V
- Time Stamp: 0.111600 | Reading: 324.928722 V
- Time Stamp: 0.115000 | Reading: -325.000000 V
- Time Stamp: 0.118400 | Reading: 324.928722 V
- Time Stamp: 0.121600 | Reading: -324.928722 V
- Time Stamp: 0.125000 | Reading: 325.000000 V
- Time Stamp: 0.128400 | Reading: -324.928722 V
- Time Stamp: 0.131600 | Reading: 324.928722 V
- Time Stamp: 0.135000 | Reading: -325.000000 V
- Time Stamp: 0.138400 | Reading: 324.928722 V
- Time Stamp: 0.141600 | Reading: -324.928722 V
- Time Stamp: 0.145000 | Reading: 325.000000 V
- Time Stamp: 0.148400 | Reading: -324.928722 V
- Time Stamp: 0.151600 | Reading: 324.928722 V
- Time Stamp: 0.155000 | Reading: -325.000000 V
- Time Stamp: 0.158400 | Reading: 324.928722 V
- Time Stamp: 0.161600 | Reading: -324.928722 V
- Time Stamp: 0.165000 | Reading: 325.000000 V
- Time Stamp: 0.168400 | Reading: -324.928722 V
- Time Stamp: 0.171600 | Reading: 324.928722 V
- Time Stamp: 0.175000 | Reading: -325.000000 V
- Time Stamp: 0.178400 | Reading: 324.928722 V
- Time Stamp: 0.181600 | Reading: -324.928722 V
- Time Stamp: 0.185000 | Reading: 325.000000 V
- Time Stamp: 0.188400 | Reading: -324.928722 V
- Time Stamp: 0.191600 | Reading: 324.928722 V
- Time Stamp: 0.195000 | Reading: -325.000000 V
- Time Stamp: 0.198400 | Reading: 324.928722 V
+ Time Stamp: 0.000000 | Phase A Reading: 400.000000 V
+ Time Stamp: 0.001600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.005000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.008400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.011600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.015000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.018400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.021600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.025000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.028400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.031600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.035000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.038400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.041600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.045000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.048400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.051600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.055000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.058400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.061600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.065000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.068400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.071600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.075000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.078400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.081600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.085000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.088400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.091600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.095000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.098400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.101600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.105000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.108400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.111600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.115000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.118400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.121600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.125000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.128400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.131600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.135000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.138400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.141600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.145000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.148400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.151600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.155000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.158400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.161600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.165000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.168400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.171600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.175000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.178400 | Phase B Reading: 324.928722 V
+ Time Stamp: 0.181600 | Phase C Reading: -324.928722 V
+ Time Stamp: 0.185000 | Phase A Reading: 325.000000 V
+ Time Stamp: 0.188400 | Phase B Reading: -324.928722 V
+ Time Stamp: 0.191600 | Phase C Reading: 324.928722 V
+ Time Stamp: 0.195000 | Phase A Reading: -325.000000 V
+ Time Stamp: 0.198400 | Phase B Reading: 324.928722 V
